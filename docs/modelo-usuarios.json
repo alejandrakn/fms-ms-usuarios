@@ -1,0 +1,42 @@
+{
+  "fsm-<stage>-usuarios": {
+    "clave": {
+      "particion": "tenant_id",
+      "ordenacion": "user_id"
+    },
+    "ejemplo": {
+      "tenant_id": "tenant-1",
+      "user_id": "admin1",
+      "rol": "admin",
+      "nombre": "Admin Demo",
+      "salt": "9f2c…(32 hex)",
+      "password_hash": "ab41…(64 hex, PBKDF2-SHA256)",
+      "creado_en": "2026-11-01T00:00:00Z"
+    },
+    "nota": "user_id es único en todo el sistema (se reserva en la tabla logins) y se guarda en minúsculas"
+  },
+  "fsm-<stage>-tokens": {
+    "clave": {
+      "particion": "token"
+    },
+    "ttl": "ttl",
+    "ejemplo": {
+      "token": "3b1f6c0e-…(uuid4)",
+      "tenant_id": "tenant-1",
+      "user_id": "admin1",
+      "rol": "admin",
+      "expires": "2026-11-05T20:00:00Z",
+      "expires_epoch": 1793908800,
+      "ttl": 1793912400
+    }
+  },
+  "fsm-<stage>-logins": {
+    "clave": {
+      "particion": "login"
+    },
+    "ejemplo": {
+      "login": "admin1",
+      "tenant_id": "tenant-1"
+    }
+  }
+}
